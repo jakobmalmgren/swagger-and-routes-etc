@@ -1,0 +1,68 @@
+{
+  "info": {
+    "description": "API för testItems",
+    "title": "API-test",
+    "version": "1.0.0"
+  },
+  "components": {
+    "schemas": {
+      "data": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "shortDesc": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "longDesc": {
+            "type": "string"
+          },
+          "imgFile": {
+            "type": "string"
+          },
+          "serial": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/api/products": {
+      "get": {
+        "description": null,
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/data"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description": "hämtar items"
+          }
+        },
+        "summary": "hämtar items"
+      }
+    }
+  }
+}

@@ -16,11 +16,81 @@ app.use(express.json());
 // ny fil för lägga ttill basket o fixa me de..
 // gör nån typ av PUT med..
 
+//sen:
+// swagger
+// sen:
+// Lägg till CORS-stöd med hjälp av cors-biblioteket
+// sen:
+// några middlewares
+
 // swagger
 
-// Lägg till CORS-stöd med hjälp av cors-biblioteket
-
-// några middlewares
+/**
+ * @swagger
+ * /api/products:
+ *   get:
+ *     tags:
+ *       - products
+ *     summary: Hämta alla produkter
+ *     description: Returnerar en lista med alla produkter
+ *     responses:
+ *       200:
+ *         description: Lyckad hämtning av produkter
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   title:
+ *                     type: string
+ *                   price:
+ *                     type: number
+ *                   shortDesc:
+ *                     type: string
+ *                   category:
+ *                     type: string
+ *                   longDesc:
+ *                     type: string
+ *                   imgFile:
+ *                     type: string
+ *                   serial:
+ *                     type: string
+ */
+/**
+ * @swagger
+ *  /api/products/add:
+ *   post:
+ *     tags:
+ *       - products
+ *     summary: lägger till produkter
+ *     description: lägger till produkter
+ *     responses:
+ *       200:
+ *         description: Lyckad add av produkter
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   title:
+ *                     type: string
+ *                   price:
+ *                     type: number
+ *                   shortDesc:
+ *                     type: string
+ *                   category:
+ *                     type: string
+ *                   longDesc:
+ *                     type: string
+ *                   imgFile:
+ *                     type: string
+ *                   serial:
+ *                     type: string
+ */
 
 //funktion som läser filer
 const readFile = async (content) => {
