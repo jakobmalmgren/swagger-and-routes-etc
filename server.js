@@ -1,11 +1,13 @@
 import express from "express";
 import dotenv from "dotenv";
 import productsRouter from "./routes/products.js";
-
+import cors from "cors";
 dotenv.config();
 const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(express.json());
+
+app.use(cors());
 
 //swagger
 import swaggerUI from "swagger-ui-express";
