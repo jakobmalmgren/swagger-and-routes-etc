@@ -129,7 +129,16 @@ router.get("/", async (req, res) => {
 router.post("/basket", async (req, res, next) => {
   const { error } = productSchema.validate(req.body);
   if (error) {
-    return next(error);
+    return next(error); // skickar error ttill middleware
+    //dvs min errorhandler
+    // /När ett fel skickas med next(error)
+    // i Express, letar Express specifikt efter
+    //  middleware som har den här signaturen
+    //   (med fyra argument).
+    // express känner igen att de ja skickar inom next(här) är ettt
+    // fel så skickas de som argumentett då : next(error) o tas emot av err
+    // i errorhandlern och err..och hur de vet de är en errorhandler:
+    // jo den har 4 st parametrar o första är::: err
   }
   try {
     const addedProduct = req.body;
