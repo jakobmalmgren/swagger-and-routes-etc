@@ -1,10 +1,11 @@
 import express from "express";
-import { read } from "fs";
 const router = express.Router();
 import fs from "fs/promises";
 
 const app = express();
 app.use(express.json());
+
+import productSchema from "../validators/productSchema.js";
 
 // Endpoints för följande funktionalitet:
 
@@ -125,7 +126,11 @@ router.get("/", async (req, res) => {
 });
 
 // Kunna lägga till en produkt i en varukorg
-router.post("/basket", async (req, res) => {
+router.post("/basket", async (req, res, next) => {
+  const { error } = productSchema.validate(req.body);
+  if (error) {
+    return next(error);
+  }
   try {
     const addedProduct = req.body;
     const readData = await readFile("basket.json");
